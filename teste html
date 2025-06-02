@@ -1,156 +1,21 @@
 
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jogo Agrinho 2025</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body, html {
-      height: 100%;
-      font-family: 'Segoe UI', sans-serif;
-    }
-
-    #startScreen, #howToPlayScreen, #gameArea {
-      width: 100vw;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
-
-    #startScreen {
-      background: linear-gradient(to right, #f0f8ff, #d2f8d2);
-    }
-    #startScreen h1 {
-      font-size: 2.5rem;
-      color: #2e7d32;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    #startScreen p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-      color: #388e3c;
-    }
-    #startScreen button {
-      padding: 12px 24px;
-      font-size: 1.2rem;
-      border: none;
-      background-color: #388e3c;
-      color: white;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    #startScreen button:hover {
-      background-color: #2e7d32;
-    }
-
-    /* Tela de como jogar */
-    #howToPlayScreen {
-      background: linear-gradient(to bottom, #e8f5e9, #bbdefb);
-      text-align: center;
-      padding: 20px;
-    }
-    #howToPlayScreen h1 {
-      font-size: 2.2rem;
-      color: #1b5e20;
-      margin-bottom: 20px;
-    }
-    #howToPlayScreen ul {
-      font-size: 1.2rem;
-      margin: 20px 0;
-      text-align: left;
-      max-width: 500px;
-      line-height: 1.6;
-    }
-    #howToPlayScreen button {
-      padding: 12px 24px;
-      font-size: 1.2rem;
-      border: none;
-      background-color: #2e7d32;
-      color: white;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    #howToPlayScreen button:hover {
-      background-color: #1b5e20;
-    }
-
-    /* Área do jogo */
-    #gameArea {
-      background: linear-gradient(to right, #a5d6a7 50%, #81d4fa 50%);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .player, .item, .goal {
-      position: absolute;
-    }
-
-    .player {
-      width: 100px; /* Ajuste o tamanho conforme necessário */
-      height: 100px;
-    }
-
-    .item {
-      background-color: #fbc02d;
-      border-radius: 8px;
-      border: 2px solid #333;
-      z-index: 1;
-      width: 40px; /* Define o tamanho dos itens */
-      height: 40px;
-    }
-
-    .goal {
-      right: 20px;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: #0d47a1;
-      border-radius: 10px;
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 15px 25px;
-      font-size: 20px;
-      width: 160px;
-      height: 60px;
-      z-index: 0;
-    }
-
-    #score {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background: rgba(255, 255, 255, 0.9);
-      padding: 8px 15px;
-      border-radius: 10px;
-      font-weight: bold;
-      font-size: 16px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <!-- Tela inicial -->
   <div id="startScreen">
     <h1>🌾 Agrinho 2025 - Conexão Campo-Cidade 🌇</h1>
     <p>Ajude a transportar os produtos do campo até a cidade!</p>
     <button onclick="startGame()">Começar</button>
   </div>
 
-  <!-- Tela de como jogar -->
-  <div id="howToPlayScreen" style="display:none;">
+  <div id="howToPlayScreen">
     <h1>📚 Como Jogar</h1>
     <ul>
       <li>Mova o personagem com as setas do teclado ⬆⬇⬅➡</li>
@@ -161,115 +26,12 @@
     <button onclick="goToGame()">Iniciar Jogo</button>
   </div>
 
-  <!-- Área do jogo -->
-  <div id="gameArea" style="display:none">
+  <div id="gameArea">
     <div id="score">Pontos: 0</div>
-    <img class="player" id="player" src="https://i.ibb.co/Q359m7tw/download.png"  alt="Caminhão" style="top: 50%; left: 20px; position: absolute;" />
+    <img class="player" id="player" src="https://i.ibb.co/Q359m7tw/download.png" alt="Caminhão" style="top: 50%; left: 20px;" />
     <div class="goal">Cidade 🏙️</div>
   </div>
 
-  <script>
-    const player = document.getElementById('player');
-    const gameArea = document.getElementById('gameArea');
-    const scoreBoard = document.getElementById('score');
-    const goal = document.querySelector('.goal');
-    let score = 0;
-    let carrying = false;
-    const items = [];
-
-    function startGame() {
-      document.getElementById('startScreen').style.display = 'none';
-      document.getElementById('howToPlayScreen').style.display = 'flex';
-    }
-
-    function goToGame() {
-      document.getElementById('howToPlayScreen').style.display = 'none';
-      gameArea.style.display = 'flex';
-
-      score = 0;
-      carrying = false;
-      updateScore();
-      clearItems();
-      for (let i = 0; i < 3; i++) spawnItem();
-    }
-
-    function spawnItem() {
-      const item = document.createElement('div');
-      item.className = 'item';
-      item.style.top = Math.random() * (gameArea.clientHeight - 50) + 'px'; // Posição vertical
-      item.style.left = Math.random() * (gameArea.clientWidth - 50) + 'px'; // Posição horizontal
-      gameArea.appendChild(item);
-      items.push(item);
-    }
-
-    function clearItems() {
-      items.forEach(item => item.remove());
-      items.length = 0;
-    }
-
-    function checkCollision(a, b) {
-      const rect1 = a.getBoundingClientRect();
-      const rect2 = b.getBoundingClientRect();
-      return (
-        rect1.left < rect2.right &&
-        rect1.right > rect2.left &&
-        rect1.top < rect2.bottom &&
-        rect1.bottom > rect2.top
-      );
-    }
-
-    function updateScore() {
-      scoreBoard.textContent = `Pontos: ${score}`;
-    }
-
-    function checkItemCollision() {
-      if (!carrying) {
-        for (let i = 0; i < items.length; i++) {
-          if (checkCollision(player, items[i])) {
-            carrying = true;
-            items[i].remove();
-            items.splice(i, 1);
-            break;
-          }
-        }
-      }
-    }
-
-    function checkGoalCollision() {
-      if (carrying && checkCollision(player, goal)) {
-        score++;
-        carrying = false;
-        updateScore();
-        spawnItem();
-      }
-    }
-
-    function movePlayer(dx, dy) {
-      const step = 10;
-      let top = parseInt(player.style.top || 0);
-      let left = parseInt(player.style.left || 0);
-      let newTop = top + dy * step;
-      let newLeft = left + dx * step;
-
-      // Limites da área de jogo
-      if (newTop >= 0 && newTop + 100 <= gameArea.clientHeight) { // 100 é a altura do player
-        player.style.top = newTop + 'px';
-      }
-      if (newLeft >= 0 && newLeft + 100 <= gameArea.clientWidth) { // 100 é a largura do player
-        player.style.left = newLeft + 'px';
-      }
-
-      checkItemCollision();
-      checkGoalCollision();
-    }
-
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowUp') movePlayer(0, -1);
-      if (e.key === 'ArrowDown') movePlayer(0, 1);
-      if (e.key === 'ArrowLeft') movePlayer(-1, 0);
-      if (e.key === 'ArrowRight') movePlayer(1, 0);
-    });
-  </script>
-
+  <script src="js/script.js"></script>
 </body>
 </html>
