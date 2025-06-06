@@ -1,37 +1,60 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jogo Agrinho 2025</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div id="startScreen">
-    <h1>🌾 Agrinho 2025 - Conexão Campo-Cidade 🌇</h1>
-    <p>Ajude a transportar os produtos do campo até a cidade!</p>
-    <button onclick="startGame()">Começar</button>
-  </div>
+<div id="startScreen">
+  <h1>🌾 Agrinho 2025 - Conexão Campo-Cidade 🌇</h1>
+  <p>Ajude a transportar os produtos do campo até a cidade!</p>
+  <button onclick="startGame()">Começar</button>
+</div>
 
-  <div id="howToPlayScreen">
-    <h1>📚 Como Jogar</h1>
-    <ul>
-      <li>Mova o personagem com as setas do teclado ⬆⬇⬅➡</li>
-      <li>Colete os produtos amarelos no campo.</li>
-      <li>Leve cada produto até a cidade (botão azul à direita).</li>
-      <li>Ganhe pontos ao entregar os produtos!</li>
-    </ul>
-    <button onclick="goToGame()">Iniciar Jogo</button>
-  </div>
+<div id="howToPlayScreen">
+  <h1>📚 Como Jogar</h1>
+  <ul>
+    <li>Mova o caminhão com WASD ou setas do teclado.</li>
+    <li>Colete os suprimentos amarelos no campo.</li>
+    <li>Evite bater nos carros da estrada!</li>
+    <li>Leve cada produto até a cidade (botão azul à direita).</li>
+    <li>Ganhe pontos ao entregar os produtos!</li>
+  </ul>
+  <button onclick="goToGame()">Iniciar Jogo</button>
+</div>
 
-  <div id="gameArea">
-    <div id="score">Pontos: 0</div>
-    <img class="player" id="player" src="https://i.ibb.co/Q359m7tw/download.png" alt="Caminhão" style="top: 50%; left: 20px;" />
-    <div class="goal">Cidade 🏙️</div>
-  </div>
+<div id="gameArea">
+  <div class="road road-vertical"></div>
+ 
+  <div class="lane-line" style="top: 0;"></div>
+  <div class="lane-line" style="top: 60px;"></div>
+  <div class="lane-line" style="top: 120px;"></div>
+  <div class="lane-line" style="top: 180px;"></div>
+  <div class="lane-line" style="top: 240px;"></div>
+  <div class="lane-line" style="top: 300px;"></div>
+  <div class="lane-line" style="top: 360px;"></div>
+  <div class="lane-line" style="top: 420px;"></div>
+  <div class="lane-line" style="top: 480px;"></div>
+  <div class="lane-line" style="top: 540px;"></div>
 
-  <script src="js/script.js"></script>
+
+  <img class="player" id="player" src="https://i.ibb.co/Q359m7tw/download.png"  alt="Caminhão"/>
+
+  <div class="goal">Cidade 🏙️</div>
+
+  <div id="score">Pontos: 0</div>
+  <div id="lives">Vidas: 3</div>
+</div>
+
+<div id="gameOverScreen">
+  <h1>💥 Game Over</h1>
+  <p>Pontuação Final: <span id="finalScore">0</span></p>
+  <button onclick="goToGame()">Jogar Novamente</button>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
