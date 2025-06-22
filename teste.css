@@ -1,222 +1,222 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+ }
 
-body,
-html {
-  height: 100%;
-  font-family: 'Segoe UI', sans-serif;
-}
+ body,
+ html {
+   height: 100%;
+   font-family: 'Segoe UI', sans-serif;
+ }
 
-#startScreen,
-#howToPlayScreen,
-#gameArea,
-#gameOverScreen {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
+ #startScreen,
+ #howToPlayScreen,
+ #gameArea,
+ #gameOverScreen {
+   width: 100vw;
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+ }
 
-#startScreen {
-  background: linear-gradient(to right, #f0f8ff, #d2f8d2);
-}
+ #startScreen {
+   background: linear-gradient(to right, #f0f8ff, #d2f8d2);
+ }
 
-#startScreen h1 {
-  font-size: 2.5rem;
-  color: #2e7d32;
-  margin-bottom: 20px;
-  text-align: center;
-}
+ #startScreen h1 {
+   font-size: 2.5rem;
+   color: #2e7d32;
+   margin-bottom: 20px;
+   text-align: center;
+ }
 
-#startScreen p {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-  color: #388e3c;
-}
+ #startScreen p {
+   font-size: 1.2rem;
+   margin-bottom: 30px;
+   color: #388e3c;
+ }
 
-#startScreen button {
-  padding: 12px 24px;
-  font-size: 1.2rem;
-  background-color: #388e3c;
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
+ #startScreen button {
+   padding: 12px 24px;
+   font-size: 1.2rem;
+   background-color: #388e3c;
+   color: white;
+   border-radius: 8px;
+   cursor: pointer;
+   transition: background 0.3s;
+ }
 
-#startScreen button:hover {
-  background-color: #2e7d32;
-}
+ #startScreen button:hover {
+   background-color: #2e7d32;
+ }
 
-#howToPlayScreen {
-  background: linear-gradient(to bottom, #e8f5e9, #bbdefb);
-  text-align: center;
-  padding: 20px;
-  display: none;
-}
+ #howToPlayScreen {
+   background: linear-gradient(to bottom, #e8f5e9, #bbdefb);
+   text-align: center;
+   padding: 20px;
+   display: none;
+ }
 
-#howToPlayScreen h1 {
-  font-size: 2.2rem;
-  color: #1b5e20;
-  margin-bottom: 20px;
-}
+ #howToPlayScreen h1 {
+   font-size: 2.2rem;
+   color: #1b5e20;
+   margin-bottom: 20px;
+ }
 
-#howToPlayScreen ul {
-  font-size: 1.2rem;
-  margin: 20px 0;
-  text-align: left;
-  max-width: 500px;
-  line-height: 1.6;
-}
+ #howToPlayScreen ul {
+   font-size: 1.2rem;
+   margin: 20px 0;
+   text-align: left;
+   max-width: 500px;
+   line-height: 1.6;
+ }
 
-#howToPlayScreen button {
-  padding: 14px 26px;
-  font-size: 1.3rem;
-  background-color: #2e7d32;
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
+ #howToPlayScreen button {
+   padding: 14px 26px;
+   font-size: 1.3rem;
+   background-color: #2e7d32;
+   color: white;
+   border-radius: 8px;
+   cursor: pointer;
+   transition: background 0.3s;
+ }
 
-#howToPlayScreen button:hover {
-  background-color: #1b5e20;
-}
+ #howToPlayScreen button:hover {
+   background-color: #1b5e20;
+ }
 
-#gameArea {
-  background: #a5d6a7;
-  position: relative;
-  overflow: hidden;
-  display: none;
-}
+ #gameArea {
+   background: #a5d6a7;
+   position: relative;
+   overflow: hidden;
+   display: none;
+ }
 
-.road {
-  background: gray;
-  z-index: 0;
-}
+ .road {
+   background: gray;
+   z-index: 0;
+ }
 
-.road-vertical {
-  width: 200px;
-  height: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  position: absolute;
-}
+ .road-vertical {
+   width: 200px;
+   height: 100%;
+   left: 50%;
+   transform: translateX(-50%);
+   position: absolute;
+ }
 
-.road-horizontal {
-  width: 100%;
-  height: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  position: absolute;
-}
+ .road-horizontal {
+   width: 100%;
+   height: 20px;
+   top: 50%;
+   transform: translateY(-50%);
+   position: absolute;
+ }
 
-.lane-line {
-  width: 10px;
-  height: 40px;
-  background: yellow;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
+ .lane-line {
+   width: 10px;
+   height: 40px;
+   background: yellow;
+   position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
+ }
 
-.lane-line-horizontal {
-  width: 40px;
-  height: 10px;
-  background: yellow;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-}
+ .lane-line-horizontal {
+   width: 40px;
+   height: 10px;
+   background: yellow;
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+ }
 
-.player,
-.enemy,
-.item,
-.goal {
-  position: absolute;
-  z-index: 2;
-}
+ .player,
+ .enemy,
+ .item,
+ .goal {
+   position: absolute;
+   z-index: 2;
+ }
 
-.player {
-  width: 50px;
-  height: 80px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+ .player {
+   width: 50px;
+   height: 80px;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+ }
 
-.enemy {
-  width: 50px;
-  height: 80px;
-  position: absolute;
-}
+ .enemy {
+   width: 50px;
+   height: 80px;
+   position: absolute;
+ }
 
-.item {
-  width: 30px;
-  height: 30px;
-  background: #fbc02d;
-  border: 2px solid #333;
-  border-radius: 8px;
-  position: absolute;
-}
+ .item {
+   width: 30px;
+   height: 30px;
+   background: #fbc02d;
+   border: 2px solid #333;
+   border-radius: 8px;
+   position: absolute;
+ }
 
-.goal {
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: #0d47a1;
-  color: white;
-  border-radius: 10px;
-  padding: 15px 25px;
-  font-size: 20px;
-  z-index: 2;
-}
+ .goal {
+   right: 20px;
+   top: 50%;
+   transform: translateY(-50%);
+   background-color: #0d47a1;
+   color: white;
+   border-radius: 10px;
+   padding: 15px 25px;
+   font-size: 20px;
+   z-index: 2;
+ }
 
-#score,
-#lives {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 8px 15px;
-  border-radius: 10px;
-  font-weight: bold;
-  font-size: 16px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
+ #score,
+ #lives {
+   position: absolute;
+   top: 10px;
+   left: 10px;
+   background: rgba(255, 255, 255, 0.9);
+   padding: 8px 15px;
+   border-radius: 10px;
+   font-weight: bold;
+   font-size: 16px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+ }
 
-#lives {
-  top: 50px;
-}
+ #lives {
+   top: 50px;
+ }
 
-#gameOverScreen {
-  background: rgba(0, 0, 0, 0.8);
-  color: white;
-  text-align: center;
-  display: none;
-}
+ #gameOverScreen {
+   background: rgba(0, 0, 0, 0.8);
+   color: white;
+   text-align: center;
+   display: none;
+ }
 
-#gameOverScreen h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
+ #gameOverScreen h1 {
+   font-size: 2.5rem;
+   margin-bottom: 20px;
+ }
 
-#gameOverScreen p {
-  font-size: 1.5rem;
-  margin-bottom: 30px;
-}
+ #gameOverScreen p {
+   font-size: 1.5rem;
+   margin-bottom: 30px;
+ }
 
-#gameOverScreen button {
-  padding: 14px 26px;
-  font-size: 1.2rem;
-  background-color: #ff5252;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
+ #gameOverScreen button {
+   padding: 14px 26px;
+   font-size: 1.2rem;
+   background-color: #ff5252;
+   color: white;
+   border: none;
+   border-radius: 8px;
+   cursor: pointer;
+ }
