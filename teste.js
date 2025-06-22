@@ -144,22 +144,31 @@ function clearEnemies() {
 
 // carros na 1 pistas
 function createEnemyCars() {
-  const lanesVertical = [100, 250, 400];
-
   const enemyImages = [
-    'https://i.ibb.co/nsmqY9g/car-pc5.png',        // Full Red
-    'https://i.ibb.co/pBRnv6N/car-pc7.png',        // Polícia 2.0
-    'https://i.ibb.co/gFh7jRT/car-pc6.png',        // Full White
-    'https://i.ibb.co/C3gGx5g/mc2.png'             // MacLaren
-  ];
+    'https://i.ibb.co/WWFq5vn4/car-pc2.png',                     // Ambulância 
+    'https://i.ibb.co/2QnDfbD/car-pc3.png',                     // Carro Preto
+    'https://i.ibb.co/FkvK8pQb/car-pc1.png',                   // Carro Policia
+    'https://i.ibb.co/jZ5p1vYg/car-pc4.png',                  // Carro Amarelo
+    'https://i.ibb.co/mrGzt7TF/car-pc5.png',                 // Camioneta Vermelha
+    'https://i.ibb.co/spP7rcYb/car-pc6.png',                // Camioneta Branca
+    'https://i.ibb.co/wFB5Vn2C/car-pc7.png',               // Policia 2
+    'https://i.ibb.co/0R3Mfd2K/car-pc10.png',             // Carro Branco 2
+    'https://i.ibb.co/LXLgkmNL/car-pc11.png',            // Camioneta Branca
+  ]
+
+  const roadWidth = 200;
+  const roadLeft = (window.innerWidth - roadWidth) / 2;
+
+
+  const lanes = [0, 70, 140];
 
   // Carros na pista vertical (vêm de cima para baixo)
-  lanesVertical.forEach(lane => {
+  lanes.forEach((lane, index) => {
     const enemy = document.createElement('img');
     enemy.className = 'enemy';
     enemy.src = enemyImages[Math.floor(Math.random() * enemyImages.length)];
     enemy.style.top = '-100px';
-    enemy.style.left = lane + 'px';
+    enemy.style.left = (roadLeft + lane) + 'px';
     gameArea.appendChild(enemy);
     enemies.push(enemy);
   });
