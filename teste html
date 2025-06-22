@@ -17,11 +17,12 @@
 <div id="howToPlayScreen">
   <h1>📚 Como Jogar</h1>
   <ul>
-    <li>Mova o caminhão com WASD ou setas do teclado.</li>
-    <li>Colete os suprimentos amarelos no campo.</li>
-    <li>Evite bater nos carros da estrada!</li>
-    <li>Leve cada produto até a cidade (botão azul à direita).</li>
-    <li>Ganhe pontos ao entregar os produtos!</li>
+    <li><strong>Mova o player com as teclas W, A, S, D ou setas do teclado.</strong></li>
+    <li><strong>Colete os suprimentos amarelos no campo</strong> para carregar os produtos que deverão ser entregues na cidade.</li>
+    <li><strong>Evite bater nos carros da estrada!</strong> Cada colisão pode danificar seu veículo e reduzir suas vidas.</li>
+    <li><strong>Leve cada produto até a cidade</strong> (representada pelo botão azul à direita) para completar a entrega com sucesso.</li>
+    <li><strong>Ganhe pontos ao entregar os produtos!</strong> Quanto mais rápido e seguramente você fizer as entregas, mais pontos acumula.</li>
+    <li><strong>O jogo acaba quando:</strong> você perder todas as vidas, após três colisões com carros na estrada.</li>
   </ul>
   <button onclick="goToGame()">Iniciar Jogo</button>
 </div>
@@ -40,9 +41,9 @@
   <div class="lane-line" style="top: 480px;"></div>
   <div class="lane-line" style="top: 540px;"></div>
 
+<img class="player" id="player" src="https://i.ibb.co/0wD88KX/OIP-removebg-preview-1.png"    alt="gbzin"/>
 
-  <img class="player" id="player" src="https://i.ibb.co/Q359m7tw/download.png"  alt="Caminhão"/>
-
+  
   <div class="goal">Cidade 🏙️</div>
 
   <div id="score">Pontos: 0</div>
