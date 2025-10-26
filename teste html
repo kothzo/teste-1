@@ -1,61 +1,44 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jogo Agrinho 2025</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+    <header>
+        <h2 class="logo">Logo</h2>
+        <nav class="navigation">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+            <button class="btnLogin-popup">Login</button>
+        </nav>
+    </header>
 
-<div id="startScreen">
-  <h1>🌾 Agrinho 2025 - Conexão Campo-Cidade 🌇</h1>
-  <p>Ajude a transportar os produtos do campo até a cidade!</p>
-  <button onclick="startGame()">Começar</button>
-</div>
-
-<div id="howToPlayScreen">
-  <h1>📚 Como Jogar</h1>
-  <ul>
-    <li><strong>Mova o player com as teclas W, A, S, D ou setas do teclado.</strong></li>
-    <li><strong>Colete os suprimentos amarelos no campo</strong> para carregar os produtos que deverão ser entregues na cidade.</li>
-    <li><strong>Evite bater nos carros da estrada!</strong> Cada colisão pode danificar seu veículo e reduzir suas vidas.</li>
-    <li><strong>Leve cada produto até a cidade</strong> (representada pelo botão azul à direita) para completar a entrega com sucesso.</li>
-    <li><strong>Ganhe pontos ao entregar os produtos!</strong> Quanto mais rápido e seguramente você fizer as entregas, mais pontos acumula.</li>
-    <li><strong>O jogo acaba quando:</strong> você perder todas as vidas, após três colisões com carros na estrada.</li>
-  </ul>
-  <button onclick="goToGame()">Iniciar Jogo</button>
-</div>
-
-<div id="gameArea">
-  <div class="road road-vertical"></div>
- 
-  <div class="lane-line" style="top: 0;"></div>
-  <div class="lane-line" style="top: 60px;"></div>
-  <div class="lane-line" style="top: 120px;"></div>
-  <div class="lane-line" style="top: 180px;"></div>
-  <div class="lane-line" style="top: 240px;"></div>
-  <div class="lane-line" style="top: 300px;"></div>
-  <div class="lane-line" style="top: 360px;"></div>
-  <div class="lane-line" style="top: 420px;"></div>
-  <div class="lane-line" style="top: 480px;"></div>
-  <div class="lane-line" style="top: 540px;"></div>
-
-<img class="player" id="player" src="https://i.ibb.co/0wD88KX/OIP-removebg-preview-1.png"    alt="gbzin"/>
-
-  
-  <div class="goal">Cidade 🏙️</div>
-
-  <div id="score">Pontos: 0</div>
-  <div id="lives">Vidas: 3</div>
-</div>
-
-<div id="gameOverScreen">
-  <h1>💥 Game Over</h1>
-  <p>Pontuação Final: <span id="finalScore">0</span></p>
-  <button onclick="goToGame()">Jogar Novamente</button>
-</div>
-
-<script src="script.js"></script>
+    <div class="wrapper">
+    <div class="form-box Login">
+    <h2>login</h2>
+    <form action="#">
+        <div class="input-box">
+            <span class="icon"><ion-icon name="mail"></ion-icon></span>
+            <input type="email" required>
+            <label>Email</label>
+        </div>
+         <div class="input-box">
+            <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+            <input type="password" required>
+            <label>Password</label>
+    </form>
+      </div>
+    </div>
+    <script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
+
 </html>
